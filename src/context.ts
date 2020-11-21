@@ -25,10 +25,10 @@ export const defaultState: AppContext = {
     projectList: [
         {
             id: 1,
-            name: 'Project A'
+            name: 'ProjectItem A'
         }, {
             id: 2,
-            name: 'Project B'
+            name: 'ProjectItem B'
         }
     ]
 }
