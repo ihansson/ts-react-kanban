@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useReducer} from 'react';
+
 import './App.css';
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+
+import Projects from './components/Projects'
+import {Context, defaultState, reducer} from "./context";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [state, dispatch] = useReducer(reducer, defaultState)
+    const value = {state, dispatch}
+    return (
+        <Context.Provider value={value}>
+            <Router>
+                <div>
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to="/">Projects</Link>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <Switch>
+                        <Route path="/">
+                            <Projects/>
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
+        </Context.Provider>
+    );
 }
 
 export default App;
