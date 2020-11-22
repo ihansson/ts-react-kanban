@@ -54,7 +54,7 @@ export function projectReducer(state: ProjectContext, action: ProjectAction | Co
                 })
             };
         default:
-            throw new Error();
+            return state
     }
 }
 
