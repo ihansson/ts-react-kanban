@@ -1,5 +1,8 @@
+import {reorderArray} from "./utils";
+
 export interface Column {
     id: number,
+    order: number,
     name: string
 }
 
@@ -50,7 +53,28 @@ export function projectReducer(state: ProjectContext, action: ProjectAction | Co
             return {
                 ...state, projectList: state.projectList.map(x => {
                     if (x.id !== action.project.id || !("column" in action)) return x;
-                    return {...x, columns: x.columns.filter(x => x.id !== action.column.id)};
+                    const columns = x.columns.filter(x => x.id !== action.column.id).map(obj => {
+                        let order = obj.order
+                        if(order > action.column.order){
+                            order = order - 1
+                        }
+                        return {...obj, order}
+                    })
+                    return {...x, columns};
+                })
+            };
+        case 'move_column_left':
+            return {
+                ...state, projectList: state.projectList.map(x => {
+                    if (x.id !== action.project.id || !("column" in action)) return x;
+                    return {...x, columns: reorderArray(x.columns,action.column.order, action.column.order - 1)}
+                })
+            };
+        case 'move_column_right':
+            return {
+                ...state, projectList: state.projectList.map(x => {
+                    if (x.id !== action.project.id || !("column" in action)) return x;
+                    return {...x, columns: reorderArray(x.columns,action.column.order, action.column.order + 1)}
                 })
             };
         default:
@@ -58,7 +82,7 @@ export function projectReducer(state: ProjectContext, action: ProjectAction | Co
     }
 }
 
-export const defaultColumns = [{id: 1, name: "Column A"}, {id: 2, name: "Column B"}]
+export const defaultColumns = [{id: 1, name: "Column A", order: 1}, {id: 2, name: "Column B", order: 2}]
 
 export const defaultProjects = {
     nextProjectId: 3,

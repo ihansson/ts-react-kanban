@@ -17,9 +17,21 @@ export function ColumnListItem(props: ColumnListItemProps) {
         return note.project === project.id && note.column === column.id
     })
     return (
-        <li key={column.id}>{column.name}
+        <li key={column.id}>{column.name} ({column.order})
+            <button aria-label={"move-column-left-" + column.id} onClick={() => dispatch({
+                type: 'move_column_left',
+                project: project,
+                column: column
+            } as ColumnAction)}>Left
+            </button>
+            <button aria-label={"move-column-right-" + column.id} onClick={() => dispatch({
+                type: 'move_column_right',
+                project: project,
+                column: column
+            } as ColumnAction)}>Right
+            </button>
             {notes &&
-                <NoteList notes={notes} />
+                <NoteList notes={notes} project={project} column={column} />
             }
             {notes.length === 0 &&
                 <div>No Notes Found</div>

@@ -9,10 +9,15 @@ interface ColumnListProps {
 
 export function ColumnList(props: ColumnListProps) {
     const {columns, project} = props
+    const sortedColumns = columns.sort(function(a, b) {
+        const x = a['order'];
+        const y = b['order'];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
     return (<div>
         {columns.length > 0 &&
         <ul className="project-list">
-            {columns.map((column: Column) => (
+            {sortedColumns.map((column: Column) => (
                 <ColumnListItem key={column.id} column={column} project={project}/>
             ))}
         </ul>

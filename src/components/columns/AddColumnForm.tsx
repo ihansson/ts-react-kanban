@@ -8,15 +8,17 @@ interface AddColumnFormProps {
 
 export function AddColumnForm(props: AddColumnFormProps) {
     const {dispatch} = useContext(Context);
+    const {project} = props
     const [addColumnName, setAddColumnName] = useState('')
     return (
         <form className="form-add-project" onSubmit={(e) => {
             e.preventDefault();
             dispatch({
                 type: 'add_column',
-                project: props.project,
+                project: project,
                 column: {
-                    id: props.project.nextColumnId,
+                    id: project.nextColumnId,
+                    order: project.columns.length + 1,
                     name: addColumnName
                 }
             } as ColumnAction)
