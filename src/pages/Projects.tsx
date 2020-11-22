@@ -1,6 +1,6 @@
 import React from 'react'
-import AddProjectForm from "../components/projects/AddProjectForm";
-import ProjectList from "../components/projects/ProjectList";
+import {AddProjectForm} from "../components/projects/AddProjectForm";
+import {ProjectList} from "../components/projects/ProjectList";
 
 export default function Projects() {
     return (<div>

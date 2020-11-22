@@ -1,5 +1,5 @@
 import React from "react";
-import {ProjectAction, ProjectContext} from './projects'
+import {ProjectAction, ProjectContext} from './reducers/projects'
 
 export interface AppContext {
     projects: ProjectContext

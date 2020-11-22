@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react'
 import {Context} from "../../lib/context";
 
-export default function AddProjectForm() {
+export function AddProjectForm() {
     const {state, dispatch} = useContext(Context);
     const [addFormName, setAddFormName] = useState('')
     return (
@@ -11,7 +11,9 @@ export default function AddProjectForm() {
                 type: 'add',
                 project: {
                     id: state.projects.nextProjectId,
-                    name: addFormName
+                    name: addFormName,
+                    columns: [],
+                    nextColumnId: 3
                 }
             })
             setAddFormName('')

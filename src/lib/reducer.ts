@@ -1,13 +1,13 @@
-import {ProjectAction, defaultProjects} from './projects'
+import {ProjectAction, defaultProjects, ColumnAction} from './reducers/projects'
 
-import {projectReducer} from "./projects";
+import {projectReducer} from "./reducers/projects";
 import {AppContext} from "./context";
 
 export const defaultState: AppContext = {
     projects: defaultProjects
 }
 
-const combineReducers = (slices: any) => (state: any, action: ProjectAction) =>
+const combineReducers = (slices: any) => (state: any, action: ProjectAction | ColumnAction) =>
     Object.keys(slices).reduce( // use for..in loop, if you prefer it
         (acc, prop) => ({
             ...acc,

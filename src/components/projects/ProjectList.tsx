@@ -1,9 +1,9 @@
 import React, {useContext} from 'react'
 import {Context} from "../../lib/context";
-import {Project} from '../../lib/projects'
-import ProjectListItem from "./ProjectListItem";
+import {Project} from '../../lib/reducers/projects'
+import {ProjectListItem} from "./ProjectListItem";
 
-export default function ProjectList() {
+export function ProjectList() {
     const {state} = useContext(Context);
 
     return (<div>
