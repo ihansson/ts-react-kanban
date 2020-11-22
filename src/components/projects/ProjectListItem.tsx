@@ -11,8 +11,9 @@ export function ProjectListItem(props: ProjectItemProps) {
     const {project} = props
     const {dispatch} = useContext(Context);
     return (
-        <li key={project.id}><Link to={"projects/" + project.id}>{project.name}</Link>
-            <button aria-label={"remove-project-" + project.id} onClick={() => dispatch({
+        <li key={project.id}>
+            <Link className="is-size-5" to={"projects/" + project.id}>{project.name}</Link>
+            <button className="button is-danger" aria-label={"remove-project-" + project.id} onClick={() => dispatch({
                 type: 'remove',
                 project: project
             })}>Remove

@@ -15,7 +15,7 @@ export function ProjectList() {
         </ul>
         }
         {state.projects.projectList.length === 0 &&
-        <h2>No Projects Found</h2>
+        <h2 className="is-size-4">No Projects Found</h2>
         }
     </div>)
 }

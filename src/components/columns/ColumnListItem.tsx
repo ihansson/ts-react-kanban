@@ -17,14 +17,15 @@ export function ColumnListItem(props: ColumnListItemProps) {
         return note.project === project.id && note.column === column.id
     })
     return (
-        <li key={column.id}>{column.name} ({column.order})
-            <button aria-label={"move-column-left-" + column.id} onClick={() => dispatch({
+        <li key={column.id}>
+            <h3 className="is-size-5">{column.name} (#{column.order})</h3>
+            <button className="button is-info" aria-label={"move-column-left-" + column.id} onClick={() => dispatch({
                 type: 'move_column_left',
                 project: project,
                 column: column
             } as ColumnAction)}>Left
             </button>
-            <button aria-label={"move-column-right-" + column.id} onClick={() => dispatch({
+            <button className="button is-info" aria-label={"move-column-right-" + column.id} onClick={() => dispatch({
                 type: 'move_column_right',
                 project: project,
                 column: column
@@ -37,7 +38,7 @@ export function ColumnListItem(props: ColumnListItemProps) {
                 <div>No Notes Found</div>
             }
             <AddNoteForm project={project} column={column} />
-            <button aria-label={"remove-column-" + column.id} onClick={() => dispatch({
+            <button className="button is-danger" aria-label={"remove-column-" + column.id} onClick={() => dispatch({
                 type: 'remove_column',
                 project: project,
                 column: column

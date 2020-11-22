@@ -29,12 +29,12 @@ export function AddNoteForm(props: AddNoteFormProps) {
         }}>
             <label>
                 <span>Note Text</span>
-                <input className="form-add-note-content" aria-label="note-content-input" type="text" value={addNoteContent}
+                <input className="input form-add-note-content" aria-label="note-content-input" type="text" value={addNoteContent}
                        onChange={(e) => {
                            setAddNoteContent(e.target.value)
                        }}/>
             </label>
-            <button>Submit</button>
+            <button className="button is-link">Submit</button>
         </form>
     )
 }

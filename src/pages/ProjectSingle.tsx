@@ -20,10 +20,10 @@ export default function Project(props: ProjectSingleParams | {}) {
     const {state} = useContext(Context);
     const project = state.projects.projectList.filter(project => project.id === id)[0]
 
-    if (!project) return <div>Project Not Found</div>
+    if (!project) return <div className="is-size-4">Project Not Found</div>
 
     return (<div>
-        {project.name}
+        <h2 className="is-size-4">{project.name}</h2>
         <ColumnList columns={project.columns} project={project}/>
         <AddColumnForm project={project}/>
     </div>)

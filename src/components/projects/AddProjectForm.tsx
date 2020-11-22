@@ -20,12 +20,12 @@ export function AddProjectForm() {
         }}>
             <label>
                 <span>Project Name</span>
-                <input className="form-add-project-name" aria-label="name-input" type="text" value={addFormName}
+                <input className="input form-add-project-name" aria-label="name-input" type="text" value={addFormName}
                        onChange={(e) => {
                            setAddFormName(e.target.value)
                        }}/>
             </label>
-            <button>Submit</button>
+            <button className="button is-link">Submit</button>
         </form>
     )
 }

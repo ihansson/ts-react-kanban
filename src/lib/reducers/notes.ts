@@ -64,12 +64,12 @@ export const defaultNotes = {
             content: 'Project A Note 2',
             order: 2
         },{
-            id: 2,
+            id: 3,
             project: 2,
             column: 2,
             content: 'Project B Note',
             order: 1
         }
     ],
-    nextNoteId: 3
+    nextNoteId: 4
 }
