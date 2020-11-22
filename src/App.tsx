@@ -1,18 +1,20 @@
-import React, {useReducer} from 'react';
+import React from 'react';
 
 import './App.css';
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 
-import Projects from './components/Projects'
-import {Context, defaultState, reducer} from "./context";
+import Projects from './pages/Projects';
+
+import {RootContext} from "./components/RootContext";
 
 function App() {
-    const [state, dispatch] = useReducer(reducer, defaultState)
-    const value = {state, dispatch}
     return (
-        <Context.Provider value={value}>
+        <RootContext>
             <Router>
                 <div>
+
+                    <h1>React Kanban</h1>
+
                     <nav>
                         <ul>
                             <li>
@@ -28,7 +30,7 @@ function App() {
                     </Switch>
                 </div>
             </Router>
-        </Context.Provider>
+        </RootContext>
     );
 }
 

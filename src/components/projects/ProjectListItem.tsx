@@ -1,16 +1,17 @@
 import React, {useContext} from 'react'
-import {Context, Project} from "../context";
+import {Context} from "../../lib/context";
+import {Project} from '../../lib/projects'
 
 interface ProjectItemProps {
     project: Project
 }
 
-export default function ProjectItem(props: ProjectItemProps){
+export default function ProjectListItem(props: ProjectItemProps){
     const { project } = props
     const { dispatch } = useContext(Context);
     return (
         <li key={project.id}>{project.name}
-            <button onClick={() => dispatch({
+            <button aria-label={"remove-project-"+project.id} onClick={() => dispatch({
                 type: 'remove',
                 project: project
             })}>Remove
