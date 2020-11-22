@@ -11,16 +11,16 @@ interface ProjectSingleParams {
 export default function Project(props: ProjectSingleParams | {}) {
     const params: ProjectSingleParams | {} = useParams()
     let id;
-    if("id" in props){
+    if ("id" in props) {
         id = parseInt(props.id)
-    } else if("id" in params) {
+    } else if ("id" in params) {
         id = parseInt(params.id)
     }
 
-    const { state } = useContext(Context);
+    const {state} = useContext(Context);
     const project = state.projects.projectList.filter(project => project.id === id)[0]
 
-    if(!project) return <div>Project Not Found</div>
+    if (!project) return <div>Project Not Found</div>
 
     return (<div>
         {project.name}

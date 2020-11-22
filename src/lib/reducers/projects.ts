@@ -36,25 +36,29 @@ export function projectReducer(state: ProjectContext, action: ProjectAction | Co
         case 'remove':
             return {...state, projectList: state.projectList.filter(x => x.id !== action.project.id)};
         case 'add_column':
-            return {...state, projectList: state.projectList.map(x => {
-                    if(x.id !== action.project.id) return x;
+            return {
+                ...state, projectList: state.projectList.map(x => {
+                    if (x.id !== action.project.id) return x;
                     const columns = x.columns.slice();
-                    if("column" in action) {
+                    if ("column" in action) {
                         columns.push(action.column)
                     }
                     return {...x, nextColumnId: x.nextColumnId + 1, columns}
-                })};
+                })
+            };
         case 'remove_column':
-            return {...state, projectList: state.projectList.map(x => {
-                    if(x.id !== action.project.id || !("column" in action)) return x;
+            return {
+                ...state, projectList: state.projectList.map(x => {
+                    if (x.id !== action.project.id || !("column" in action)) return x;
                     return {...x, columns: x.columns.filter(x => x.id !== action.column.id)};
-                })};
+                })
+            };
         default:
             throw new Error();
     }
 }
 
-export const defaultColumns = [{id: 1, name: "Column A"},{id: 2, name: "Column B"}]
+export const defaultColumns = [{id: 1, name: "Column A"}, {id: 2, name: "Column B"}]
 
 export const defaultProjects = {
     nextProjectId: 3,

@@ -8,12 +8,12 @@ interface ColumnListProps {
 }
 
 export function ColumnList(props: ColumnListProps) {
-    const { columns, project } = props
+    const {columns, project} = props
     return (<div>
         {columns.length > 0 &&
         <ul className="project-list">
             {columns.map((column: Column) => (
-                <ColumnListItem key={column.id} column={column} project={project} />
+                <ColumnListItem key={column.id} column={column} project={project}/>
             ))}
         </ul>
         }

@@ -24,9 +24,10 @@ export function AddColumnForm(props: AddColumnFormProps) {
         }}>
             <label>
                 <span>Column Name</span>
-                <input className="form-add-column-name" aria-label="column-name-input" type="text" value={addColumnName} onChange={(e) => {
-                    setAddColumnName(e.target.value)
-                }}/>
+                <input className="form-add-column-name" aria-label="column-name-input" type="text" value={addColumnName}
+                       onChange={(e) => {
+                           setAddColumnName(e.target.value)
+                       }}/>
             </label>
             <button>Submit</button>
         </form>

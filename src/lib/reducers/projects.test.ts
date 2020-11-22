@@ -1,4 +1,4 @@
-import {projectReducer, defaultProjects} from "./projects";
+import {defaultProjects, projectReducer} from "./projects";
 
 import {useTestReducer} from "../../setupTests";
 

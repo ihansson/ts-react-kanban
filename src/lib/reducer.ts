@@ -1,6 +1,4 @@
-import {ProjectAction, defaultProjects, ColumnAction} from './reducers/projects'
-
-import {projectReducer} from "./reducers/projects";
+import {ColumnAction, defaultProjects, ProjectAction, projectReducer} from './reducers/projects'
 import {AppContext} from "./context";
 
 export const defaultState: AppContext = {
@@ -16,4 +14,4 @@ const combineReducers = (slices: any) => (state: any, action: ProjectAction | Co
         state
     );
 
-export const reducer = combineReducers({projects:projectReducer})
+export const reducer = combineReducers({projects: projectReducer})
