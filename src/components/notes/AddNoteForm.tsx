@@ -13,7 +13,7 @@ export function AddNoteForm(props: AddNoteFormProps) {
     const {project, column} = props
     const [addNoteContent, setAddNoteContent] = useState('')
     return (
-        <form className="note" onSubmit={(e) => {
+        <form className="card form-add-note mt-4 mb-2" onSubmit={(e) => {
             e.preventDefault();
             dispatch({
                 type: 'add_note',
@@ -27,14 +27,25 @@ export function AddNoteForm(props: AddNoteFormProps) {
             } as NoteAction)
             setAddNoteContent('')
         }}>
-            <label>
-                <span>Note Text</span>
-                <input className="input form-add-note-content" aria-label="note-content-input" type="text" value={addNoteContent}
-                       onChange={(e) => {
-                           setAddNoteContent(e.target.value)
-                       }}/>
-            </label>
-            <button className="button is-link">Submit</button>
+            <div className="card-content">
+                <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                        <label className="label" htmlFor="form-add-note-content">Content</label>
+                    </div>
+                    <div className="field-body">
+                        <div className="field">
+                            <input className="input form-add-note-content" name="form-add-note-content"
+                                   aria-label="note-content-input" type="text" value={addNoteContent}
+                                   onChange={(e) => {
+                                       setAddNoteContent(e.target.value)
+                                   }}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="card-footer">
+                <button className="card-footer-item is-info button">Submit</button>
+            </div>
         </form>
     )
 }

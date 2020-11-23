@@ -13,25 +13,37 @@ export function NoteListItem(props: NoteListItemProps) {
     const {note, column} = props
     const {dispatch} = useContext(Context);
 
-    return (<li key={note.id} className="message">
+    return (<article key={note.id} className="message">
         <div className="message-body">
-            {note.id} ({note.order})
-            <button className="button is-info" aria-label={"move-note-up-" + column.id} onClick={() => dispatch({
-                type: 'move_note_up',
-                note: note
-            } as NoteAction)}>Up
-            </button>
-            <button className="button is-info" aria-label={"move-note-down-" + column.id} onClick={() => dispatch({
-                type: 'move_note_down',
-                note: note
-            } as NoteAction)}>Down
-            </button>
-            {note.content}
-            <button className="button is-danger" aria-label={"remove-note-" + note.id} onClick={() => dispatch({
-                type: 'remove_note',
-                note: note
-            } as NoteAction)}>Remove
-            </button>
+            <div className="columns is-vcentered">
+                <div className="column">
+                    {note.content}
+                </div>
+                <div className="column has-text-right">
+                    <button className="button is-small" aria-label={"move-note-up-" + column.id} onClick={() => dispatch({
+                        type: 'move_note_up',
+                        note: note
+                    } as NoteAction)}><span className="icon is-small">
+                              <i className="fas fa-arrow-up" />
+                            </span>
+                    </button>
+                    <button className="button is-small ml-2 mr-2" aria-label={"move-note-down-" + column.id}
+                            onClick={() => dispatch({
+                                type: 'move_note_down',
+                                note: note
+                            } as NoteAction)}><span className="icon is-small">
+                              <i className="fas fa-arrow-down" />
+                            </span>
+                    </button>
+                    <button className="button is-small is-danger" aria-label={"remove-note-" + note.id} onClick={() => dispatch({
+                        type: 'remove_note',
+                        note: note
+                    } as NoteAction)}><span className="icon is-small">
+                              <i className="fas fa-times" />
+                            </span>
+                    </button>
+                </div>
+            </div>
         </div>
-    </li>);
+    </article>);
 }

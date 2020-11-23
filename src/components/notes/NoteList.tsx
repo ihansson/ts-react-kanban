@@ -16,7 +16,7 @@ export function NoteList(props: NoteListProps) {
         const y = b['order'];
         return ((x < y) ? -1 : ((x > y) ? 1 : 0));
     });
-    return (<ul>
+    return (<section>
         {sortedNotes.map((note: Note) => <NoteListItem key={note.id} note={note} project={project} column={column} /> )}
-    </ul>)
+    </section>)
 }

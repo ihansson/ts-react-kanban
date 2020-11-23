@@ -8,11 +8,11 @@ export function ProjectList() {
 
     return (<div>
         {state.projects.projectList &&
-        <ul className="project-list">
+        <section className="columns is-multiline project-list mt-2">
             {state.projects.projectList.map((project: Project) => (
                 <ProjectListItem key={project.id} project={project}/>
             ))}
-        </ul>
+        </section>
         }
         {state.projects.projectList.length === 0 &&
         <h2 className="is-size-4">No Projects Found</h2>

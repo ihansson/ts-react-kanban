@@ -9,15 +9,31 @@ interface ProjectItemProps {
 
 export function ProjectListItem(props: ProjectItemProps) {
     const {project} = props
-    const {dispatch} = useContext(Context);
+    const {state, dispatch} = useContext(Context);
     return (
-        <li key={project.id}>
-            <Link className="is-size-5" to={"projects/" + project.id}>{project.name}</Link>
-            <button className="button is-danger" aria-label={"remove-project-" + project.id} onClick={() => dispatch({
-                type: 'remove',
-                project: project
-            })}>Remove
-            </button>
-        </li>
+        <article className="column is-one-third mb-4" key={project.id}>
+            <div className="card">
+                <header className="card-header">
+                    <h3 className="card-header-title">{project.name}</h3>
+                </header>
+                <div className="card-content">
+                    <div className="content">
+                        <strong>Columns:</strong> {project.columns.length}<br/>
+                        <strong>Notes:</strong> {state.notes.noteList.filter(note => note.project === project.id).length}
+                    </div>
+                </div>
+                <footer className="card-footer">
+                    <div className="card-footer-item">
+                        <button className="button is-danger" aria-label={"remove-project-" + project.id}
+                                onClick={() => dispatch({
+                                    type: 'remove',
+                                    project: project
+                                })}>Remove
+                        </button>
+                    </div>
+                    <Link className="card-footer-item" to={"projects/" + project.id}>View</Link>
+                </footer>
+            </div>
+        </article>
     )
 }

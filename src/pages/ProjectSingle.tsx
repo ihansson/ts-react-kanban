@@ -23,8 +23,9 @@ export default function Project(props: ProjectSingleParams | {}) {
     if (!project) return <div className="is-size-4">Project Not Found</div>
 
     return (<div>
-        <h2 className="is-size-4">{project.name}</h2>
+        <h2 className="is-size-4 mt-4">{project.name}</h2>
         <ColumnList columns={project.columns} project={project}/>
+        <h2 className="is-size-4 mt-4">Add Column</h2>
         <AddColumnForm project={project}/>
     </div>)
 }

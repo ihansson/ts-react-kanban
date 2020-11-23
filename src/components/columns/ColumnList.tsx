@@ -16,7 +16,7 @@ export function ColumnList(props: ColumnListProps) {
     });
     return (<div>
         {columns.length > 0 &&
-        <ul className="project-list">
+        <ul className="columns project-list mt-3 mb-4">
             {sortedColumns.map((column: Column) => (
                 <ColumnListItem key={column.id} column={column} project={project}/>
             ))}
