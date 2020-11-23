@@ -55,7 +55,7 @@ export function projectReducer(state: ProjectContext, action: ProjectAction | Co
                     if (x.id !== action.project.id || !("column" in action)) return x;
                     const columns = x.columns.filter(x => x.id !== action.column.id).map(obj => {
                         let order = obj.order
-                        if(order > action.column.order){
+                        if (order > action.column.order) {
                             order = order - 1
                         }
                         return {...obj, order}
@@ -67,14 +67,14 @@ export function projectReducer(state: ProjectContext, action: ProjectAction | Co
             return {
                 ...state, projectList: state.projectList.map(x => {
                     if (x.id !== action.project.id || !("column" in action)) return x;
-                    return {...x, columns: reorderArray(x.columns,action.column.order, action.column.order - 1)}
+                    return {...x, columns: reorderArray(x.columns, action.column.order, action.column.order - 1)}
                 })
             };
         case 'move_column_right':
             return {
                 ...state, projectList: state.projectList.map(x => {
                     if (x.id !== action.project.id || !("column" in action)) return x;
-                    return {...x, columns: reorderArray(x.columns,action.column.order, action.column.order + 1)}
+                    return {...x, columns: reorderArray(x.columns, action.column.order, action.column.order + 1)}
                 })
             };
         default:

@@ -22,7 +22,7 @@ export function AddNoteForm(props: AddNoteFormProps) {
                     project: project.id,
                     column: column.id,
                     content: addNoteContent,
-                    order: state.notes.noteList.filter(obj => (obj.project === project.id && obj.column === column.id)).length + 1,
+                    index: state.notes.noteList.filter(obj => (obj.project === project.id && obj.column === column.id)).length + 1,
                 }
             } as NoteAction)
             setAddNoteContent('')

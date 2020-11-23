@@ -30,7 +30,7 @@ export function ColumnListItem(props: ColumnListItemProps) {
                                     project: project,
                                     column: column
                                 } as ColumnAction)}><span className="icon">
-                              <i className="fas fa-arrow-left" />
+                              <i className="fas fa-arrow-left"/>
                             </span>
                         </button>
                         <button className="button ml-2 mr-2" aria-label={"move-column-right-" + column.id}
@@ -39,7 +39,7 @@ export function ColumnListItem(props: ColumnListItemProps) {
                                     project: project,
                                     column: column
                                 } as ColumnAction)}><span className="icon">
-                              <i className="fas fa-arrow-right" />
+                              <i className="fas fa-arrow-right"/>
                             </span>
                         </button>
                         <button className="button is-danger" aria-label={"remove-column-" + column.id}
@@ -48,7 +48,7 @@ export function ColumnListItem(props: ColumnListItemProps) {
                                     project: project,
                                     column: column
                                 } as ColumnAction)}><span className="icon">
-                              <i className="fas fa-times" />
+                              <i className="fas fa-times"/>
                             </span>
                         </button>
                     </div>

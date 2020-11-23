@@ -9,7 +9,7 @@ interface ColumnListProps {
 
 export function ColumnList(props: ColumnListProps) {
     const {columns, project} = props
-    const sortedColumns = columns.sort(function(a, b) {
+    const sortedColumns = columns.sort(function (a, b) {
         const x = a['order'];
         const y = b['order'];
         return ((x < y) ? -1 : ((x > y) ? 1 : 0));

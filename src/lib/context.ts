@@ -1,6 +1,6 @@
 import React from "react";
 import {ColumnAction, ProjectAction, ProjectContext} from './reducers/projects'
-import {NoteAction, NoteContext} from "./reducers/notes";
+import {NoteAction, NoteContext, NoteDragAction} from "./reducers/notes";
 
 export interface AppContext {
     projects: ProjectContext
@@ -9,7 +9,7 @@ export interface AppContext {
 
 interface IContextProps {
     state: AppContext
-    dispatch: (type: ProjectAction | ColumnAction | NoteAction) => void
+    dispatch: (type: ProjectAction | ColumnAction | NoteAction | NoteDragAction) => void
 }
 
 export const Context = React.createContext({} as IContextProps);
